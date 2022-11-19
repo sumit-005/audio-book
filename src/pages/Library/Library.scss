@@ -1,0 +1,26 @@
+.page-header {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #6a6a8b;
+  margin: 0;
+
+  h3 {
+    margin: 0.8rem 0;
+  }
+
+  input {
+    height: 53px;
+  }
+
+  ::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #b8b8c7;
+  }
+}
+
+.wrapper {
+  margin-bottom: 3.5rem;
+}

@@ -6,6 +6,7 @@ import {
   ColorScheme,
 } from "@mantine/core";
 import Home from "./assets/svg/Home";
+import MainLayout from "./layouts/MainLayout/MainLayout";
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
@@ -41,16 +42,7 @@ function App() {
             primaryColor: "primary",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <p>Home</p>
-            <Home />
-          </div>
+          <MainLayout />
         </MantineProvider>
       </ColorSchemeProvider>
     </div>
