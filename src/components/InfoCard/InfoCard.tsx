@@ -1,21 +1,21 @@
 import { Avatar } from "@mantine/core";
 import React from "react";
+import { IBook } from "../../types/common";
 import "./InfoCard.scss";
 
 interface InfoCardProps {
-  title: string;
-  author: string;
-  image: string;
+  book: IBook;
+  setSelectedBook: (book: IBook) => void;
 }
-const InfoCard = ({ title, author, image }: InfoCardProps) => {
+const InfoCard = ({ book, setSelectedBook }: InfoCardProps) => {
   return (
-    <div className="info-card">
+    <div className="info-card" onClick={() => setSelectedBook(book)}>
       <div className="info-card-image">
-        <Avatar src={`../../../images/${image}.png`} size="xl" alt="img" />
+        <Avatar src={`../../../images/${book.image}.png`} size="xl" alt="img" />
       </div>
       <div className="info-card-content">
-        <h3>{title}</h3>
-        <p>{author}</p>
+        <h3>{book.title}</h3>
+        <p>{book.author}</p>
       </div>
     </div>
   );

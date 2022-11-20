@@ -1,4 +1,6 @@
-export const data = [
+import { IBook } from "../types/common";
+
+export const data: IBook[] = [
   {
     id: 1,
     title: "The Black Witch",

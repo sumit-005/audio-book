@@ -2,11 +2,15 @@ import { Input } from "@mantine/core";
 import React, { useEffect } from "react";
 import InfoCard from "../../components/InfoCard/InfoCard";
 import { data } from "../../services/data";
+import { IBook } from "../../types/common";
+import { Player } from "../Player/Player";
 import "./Library.scss";
 
 const Library = () => {
   const [search, setSearch] = React.useState("");
-  const [filteredData, setFilteredData] = React.useState(data);
+  const [filteredData, setFilteredData] = React.useState<IBook[]>(data);
+  const [selectedBook, setSelectedBook] = React.useState<IBook>();
+  const [openPlayer, setOpenPlayer] = React.useState(false);
 
   useEffect(() => {
     const filtered = data.filter((item) => {
@@ -17,6 +21,11 @@ const Library = () => {
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
+  };
+
+  const handleCardClick = (book: IBook) => {
+    setSelectedBook(book);
+    setOpenPlayer(true);
   };
 
   return (
@@ -37,16 +46,21 @@ const Library = () => {
           </div>
         )}
 
-        {filteredData.map((item, index) => (
-          <div className="page-content-item" key={index}>
-            <InfoCard
-              title={item.title}
-              author={item.author}
-              image={item.image}
-            />
-          </div>
-        ))}
+        {filteredData &&
+          filteredData.map((item, index) => (
+            <div className="page-content-item" key={index}>
+              <InfoCard book={item} setSelectedBook={handleCardClick} />
+            </div>
+          ))}
       </div>
+
+      {selectedBook && (
+        <Player
+          openPlayer={openPlayer}
+          setOpenPlayer={setOpenPlayer}
+          selectedBook={selectedBook}
+        />
+      )}
     </div>
   );
 };
