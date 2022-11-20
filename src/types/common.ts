@@ -4,5 +4,5 @@ export type IBook = {
   author: string;
   description: string;
   image: string;
-  audioLength: string;
+  audioLength: number;
 };
