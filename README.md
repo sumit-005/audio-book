@@ -12,6 +12,17 @@ An audiobook app is a software that helps with listening to a recording of book 
 - [x] User can listen to a chapter.
 - [x] User can add a bookmark to a chapter.
 
+## Approach
+
+- Created architecture for the application.
+- I added all the required dependencies.
+- I started by creating a basic layout of the app.
+- Customized the theme of the app.
+- Created reusable components.
+- Added the library page.
+- Implemented the search functionality.
+- Added the book details page and the player.
+
 ## Tech Stack
 
 - React
